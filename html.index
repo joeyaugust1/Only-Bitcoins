@@ -17,26 +17,19 @@
       margin: 0;
     }
 
+    .glow-wrapper {
+      padding: 8px;
+      border-radius: 20px;
+      background: radial-gradient(circle, rgba(242,169,0,0.6), transparent 70%);
+      box-shadow: 0 0 30px 10px rgba(242,169,0,0.5);
+    }
+
     .container {
       text-align: center;
       padding: 40px;
       border-radius: 12px;
       background: #1a1a1a;
-      position: relative;
-      z-index: 1;
-    }
-
-    .container::before {
-      content: "";
-      position: absolute;
-      top: -4px;
-      left: -4px;
-      right: -4px;
-      bottom: -4px;
-      z-index: -1;
-      border-radius: 16px;
-      background: radial-gradient(circle, rgba(242,169,0,0.8) 0%, rgba(242,169,0,0.2) 60%, transparent 100%);
-      box-shadow: 0 0 20px 5px rgba(242,169,0,0.4);
+      border: 2px solid rgba(242,169,0, 0.8); /* visible solid border */
     }
 
     .price {
@@ -57,10 +50,12 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Bitcoin Price</h1>
-    <div class="price" id="btcPrice">$...</div>
-    <div class="updated" id="lastUpdated">Last updated: --</div>
+  <div class="glow-wrapper">
+    <div class="container">
+      <h1>Bitcoin Price</h1>
+      <div class="price" id="btcPrice">$...</div>
+      <div class="updated" id="lastUpdated">Last updated: --</div>
+    </div>
   </div>
 
   <script>
