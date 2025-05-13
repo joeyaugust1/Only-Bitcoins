@@ -12,14 +12,10 @@ body {
 .container {
   text-align: center;
   padding: 40px;
-  border-radius: 20px;
   background-color: #1a1a1a;
-  border: 4px solid #f2a900;
-  box-shadow:
-    0 0 10px rgba(242, 169, 0, 0.8),
-    0 0 20px rgba(242, 169, 0, 0.6),
-    0 0 30px rgba(242, 169, 0, 0.4),
-    0 0 40px rgba(242, 169, 0, 0.2);
+  border: 6px solid #f2a900; /* solid bright orange */
+  border-radius: 16px;        /* rounded outer corners */
+  box-sizing: border-box;
 }
 
 .price {
