@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bitcoin Live Price</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #f2a900;
+      font-family: 'Orbitron', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+      border: 2px solid #f2a900;
+      padding: 40px;
+      border-radius: 12px;
+      background: #1a1a1a;
+      box-shadow: 0 0 20px #f2a90050;
+    }
+
+    .price {
+      font-size: 3em;
+      margin-top: 20px;
+    }
+
+    .updated {
+      font-size: 0.9em;
+      color: #aaa;
+      margin-top: 10px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bitcoin Price</h1>
+    <div class="price" id="btcPrice">$...</div>
+    <div class="updated" id="lastUpdated">Last updated: --</div>
+  </div>
+
+  <script>
+    async function fetchPrice() {
+      try {
+        const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
+        const data = await res.json();
+        const price = data.bitcoin.usd;
+
+        document.getElementById('btcPrice').innerText = `$${price.toLocaleString()}`;
+        document.getElementById('lastUpdated').innerText = 'Last updated: ' + new Date().toLocaleTimeString();
+      } catch (err) {
+        console.error('Error fetching price:', err);
+      }
+    }
+
+    // Fetch on load
+    fetchPrice();
+
+    // Update every 5 minutes (300,000 ms)
+    setInterval(fetchPrice, 300000);
+  </script>
+</body>
+</html
