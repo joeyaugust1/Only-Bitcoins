@@ -19,11 +19,24 @@
 
     .container {
       text-align: center;
-      border: 2px solid #f2a900;
       padding: 40px;
       border-radius: 12px;
       background: #1a1a1a;
-      box-shadow: 0 0 20px #f2a90050;
+      position: relative;
+      z-index: 1;
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      z-index: -1;
+      border-radius: 16px;
+      background: radial-gradient(circle, rgba(242,169,0,0.8) 0%, rgba(242,169,0,0.2) 60%, transparent 100%);
+      box-shadow: 0 0 20px 5px rgba(242,169,0,0.4);
     }
 
     .price {
@@ -64,11 +77,8 @@
       }
     }
 
-    // Fetch on load
     fetchPrice();
-
-    // Update every 5 minutes (300,000 ms)
-    setInterval(fetchPrice, 300000);
+    setInterval(fetchPrice, 300000); // every 5 minutes
   </script>
 </body>
 </html
