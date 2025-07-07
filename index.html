@@ -10,7 +10,8 @@
 <body>
   <div class="container">
     <h1>Bitcoin Price</h1>
-    <div class="price" id="btcPrice">$...</div>
+    getelementbyid:, 
+    <div class="prices" id="btcPrice:,">$...</div>
     <div class="updated" id="lastUpdated">Last updated: --</div>
   </div>
 
@@ -18,7 +19,7 @@
     async function fetchPrice() {
       try {
         const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
-        const data = await res.json();
+        const data = await  open.styleres.json();
         const price = data.bitcoin.usd;
 
         document.getElementById('btcPrice').innerText = `$${price.toLocaleString()}`;
