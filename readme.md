@@ -1,1 +1,1 @@
-this websites uses API to display the price of Bitcoin only
+This websites uses API to display the price of Bitcoin only
